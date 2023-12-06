@@ -1,0 +1,31 @@
+"""
+@author: nm86611
+"""
+import pandas as pd
+import matplotlib.pyplot as plt
+import datetime
+from datetime import datetime
+
+
+# Load data from Excel file 
+#file_path = "path_to_your_excel_file.csv"
+data = pd.read_csv(file_path)
+
+# Assuming your columns are named "datetime" and "velocity"
+# Change format of datetime, if needed
+data['datetime']=pd.to_datetime(data['datetime'], format='%Y%m%d%H') 
+datetime_column = data['datetime']
+velocity_column = data['velocity']
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+plt.plot(datetime_column, velocity_column, marker='o')
+plt.xlabel('datetime')
+plt.ylabel('velocity')
+plt.title('velocity vs. datetime')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+
+# Display the plot
+plt.show()
